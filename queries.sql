@@ -246,3 +246,157 @@ SELECT
   salary,
   ROUND((salary / (SELECT MAX(salary) FROM Employees)) * 100,2) AS salary_percent
 FROM Employees;
+
+
+-- -- Update the salary of employee ‘Alice’ to 55000. -- --
+update employees
+set salary = 55000
+where employee_name = 'Alice';
+
+-- -- Increase the salary of all employees in the ‘HR’ department by 5%. -- --
+update employees
+set salary = salary * 1.05
+where department = 'HR';
+
+
+-- -- Change the department of ‘Bob’ to ‘IT’. -- --
+update employees
+set department = 'IT'
+where employee_name = 'Bob';
+
+-- -- Set the hire date of ‘Charlie’ to ‘2020-01-15’ -- --
+update employees
+set hiredate = '2020-01-15'
+where employee_name = "Charlie";
+
+-- -- Change the salary of all employees in the ‘Marketing’ department to 60000. -- --
+update employees
+set salary = 60000
+where department = 'Marketing';
+
+-- -- Increase the salary of employees earning below 50000 by 10%. -- --
+update employees
+set salary = salary * 1.10
+where salary < 50000;
+
+-- -- Update the department of all employees with the last name ‘Smith’ to ‘HR’. -- --
+update employees
+set department = 'HR'
+where employee_name like "%Smith";
+
+-- -- Decrease the salary of all employees in ‘IT’ department by 5%. -- --
+update employees
+set salary = salary * 0.95
+where department = 'IT';
+
+-- -- Set the department of employees with the salary greater than 60000 to ‘Finance’. --
+update employees
+set department = 'Finance'
+where salary >60000;
+
+
+-- -- Set the salary of all employees hired before 2020 to 50000. -- --
+update employees
+set salary = 50000
+where year(hiredate) = '2020';
+
+-- -- ncrease the salary of ‘Mike’ by 8%. -- --
+update employees
+set salary = salary * 1.08
+where employee_name = 'Mike';
+
+-- -- Update the department of ‘Steve’ to ‘IT’ and salary to 62000. -- --
+update employees
+set department = 'IT', salary = 62000
+where employee_name = 'Steve';
+
+-- --  Set the salary of employees in the ‘IT’ department to be the same as the highest salary in the company. -- --
+update employees 
+set salary = (select max(salary) from employees)
+where department = 'IT';
+
+
+-- -- Update the department of employees whose names start with 'C' to ‘Customer Support’. -- --
+update employees
+set department = 'Customer Support'
+where employee_name like 'C%';
+
+-- -- Set all employees' salary in the 'Finance' department to 70000 if their salary is below 70000. -- --
+update employees
+set salary = 70000
+where department = 'Finance' and salary < 70000;
+
+-- -- Delete employee named 'John'. -- --
+delete from employees
+where employee_name = 'John';
+
+-- -- Delete all employees in the 'HR' department. -- --
+delete from employees
+where department = 'HR';
+
+-- --  Delete employees with a salary less than 30000. -- --
+delete from employees
+where salary < 30000;
+
+-- -- Delete employees who were hired before 2019. -- -- 
+delete from employees
+where year(hiredate) < '2019';
+
+-- -- Delete all employees with NULL department. -- --
+delete from employees
+where department is null;
+
+-- -- Delete employees with names starting with 'S'. -- --
+delete from employees
+where employee_name like 'S%';
+
+-- -- Delete employees in 'Finance' who earn more than 70000. -- --
+delete from employees
+where department = 'Finance' and salary > 70000;
+
+-- -- Delete the most recently hired employee. -- --
+-- DELETE FROM employees
+-- WHERE hiredate = (SELECT MAX(hiredate) FROM employees);
+
+-- --  Delete all employees in the 'Sales' department. -- -- 
+delete from employees
+where department = 'Sales';
+
+-- -- Delete employees with salaries BETWEEN 40000 and 45000. -- --
+delete from employees
+where salary between 40000 and 45000;
+
+
+-- -- Delete employees with names exactly 5 characters long. -- --
+delete from employees
+where length(employee_name) = 5;
+
+
+-- -- Get the names and departments of employees who don’t belong to ‘IT’ or ‘HR’. -- --
+select
+	employee_name,
+    department
+from employees
+where department not in ('IT','HR');
+
+-- -- Set the bonus to 1000 for all employees who have worked for more than 5 years. -- --
+UPDATE Employees
+SET bonus = 1000
+WHERE hiredate <= DATE('2020-04-22');
+
+-- -- Delete all employees whose salary is greater than the average salary. -- --
+-- delete from employees
+-- where salary > (SELECT AVG(salary) FROM employees);
+
+-- -- Change the department of the employee with the highest salary to ‘Executive’. -- --
+-- update employees
+-- set department = 'Executive'
+-- where salary = max(salary);
+
+-- --  Show total salary paid in each department that has more than 2 employees. -- --
+select
+	sum(salary),
+    department
+from employees
+group by department
+having count(employee_name)>2;

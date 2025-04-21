@@ -2,5 +2,22 @@ where column_name LIKE  '%'
 BETWEEN value1 AND value2
 YEAR(COLUMN_NAME) = int , MONTH(COLUMN_NAME) = int, DAY(COLUMN_NAME) = int
 value1 AND value2 
+value1 OR value2
 LEFT(column_name,1)    # first letter of the column value
 RIGHT(column_name,1)   # last letter of the column value
+UPPER()
+LOWER()
+MOD(value,2)       # return 0 than even       /     return 1 than odd
+ROUND()
+
+CASE 
+    WHEN condition1 THEN output1
+    WHEN condition2 THEN output2
+    ELSE output
+END AS column_name
+
+SET SQL_SAFE_UPDATES = 0;  # safe mode off   (you can update the table)
+SET SQL_SAFE_UPDATES = 1;  # safe mode on    (you cannot update the table)
+
+IS NULL
+
