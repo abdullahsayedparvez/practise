@@ -1,3 +1,5 @@
+SET SQL_SAFE_UPDATES = 0;   
+
 where column_name LIKE  '%'
 BETWEEN value1 AND value2
 YEAR(COLUMN_NAME) = int , MONTH(COLUMN_NAME) = int, DAY(COLUMN_NAME) = int
@@ -20,4 +22,15 @@ SET SQL_SAFE_UPDATES = 0;  # safe mode off   (you can update the table)
 SET SQL_SAFE_UPDATES = 1;  # safe mode on    (you cannot update the table)
 
 IS NULL
+
+DATE_SUB(CURDATE(), INTERVAL 3 YEAR)    # calculates the date exactly 3 years before today.
+CURDATE -- > current_date
+
+REPLACE(row_value, want to replace , want to replace with)
+example : 
+email = john.doe@example.com
+REPLACE(email, 'example.com', 'newdomain.com')
+
+
+
 

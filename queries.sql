@@ -400,3 +400,72 @@ select
 from employees
 group by department
 having count(employee_name)>2;
+
+
+
+--  - -- - - -- - - --  - create new table for new querries - - -- - - -- - - -- -- - -
+
+CREATE TABLE Employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(100),
+    department VARCHAR(50),
+    salary DECIMAL(10, 2),
+    hiredate DATE,
+    bonus DECIMAL(10, 2),
+    email VARCHAR(100)
+);
+-- --------------------------------------------
+-- Insert 50 rows of sample data
+INSERT INTO Employees (employee_id, employee_name, department, salary, hiredate, bonus, email) VALUES
+(1, 'John Doe', 'IT', 75000, '2015-06-01', 5000, 'john.doe@example.com'),
+(2, 'Jane Smith', 'HR', 55000, '2017-09-12', 3000, 'jane.smith@example.com'),
+(3, 'Sam Brown', 'Marketing', 60000, '2016-01-18', 4000, 'sam.brown@example.com'),
+(4, 'Lisa White', 'Sales', 45000, '2018-07-23', 1500, 'lisa.white@example.com'),
+(5, 'Peter Green', 'Finance', 80000, '2014-03-05', 6000, 'peter.green@example.com'),
+(6, 'Anna Black', 'HR', 52000, '2016-11-11', 2500, 'anna.black@example.com'),
+(7, 'Tim Wilson', 'IT', 90000, '2015-10-15', 7000, 'tim.wilson@example.com'),
+(8, 'Sarah Gray', 'Marketing', 67000, '2019-02-14', 5000, 'sarah.gray@example.com'),
+(9, 'Tom Harris', 'Sales', 48000, '2020-04-02', 1200, 'tom.harris@example.com'),
+(10, 'Emily Clark', 'IT', 74000, '2018-05-19', 4500, 'emily.clark@example.com'),
+(11, 'James Lewis', 'Finance', 95000, '2014-09-09', 8000, 'james.lewis@example.com'),
+(12, 'Grace Martinez', 'HR', 60000, '2017-12-17', 4000, 'grace.martinez@example.com'),
+(13, 'Mike Robinson', 'Marketing', 62000, '2020-07-05', 3500, 'mike.robinson@example.com'),
+(14, 'Linda Hall', 'Sales', 46000, '2019-05-22', 1100, 'linda.hall@example.com'),
+(15, 'Chris Young', 'Finance', 85000, '2016-01-10', 7000, 'chris.young@example.com'),
+(16, 'Rachel Adams', 'IT', 95000, '2017-03-20', 7500, 'rachel.adams@example.com'),
+(17, 'Daniel Scott', 'Marketing', 65000, '2021-08-13', 4200, 'daniel.scott@example.com'),
+(18, 'Anna Taylor', 'Sales', 50000, '2020-12-01', 1300, 'anna.taylor@example.com'),
+(19, 'Tushar Patel', 'HR', 56000, '2019-04-09', 2700, 'tushar.patel@example.com'),
+(20, 'Nina Kumar', 'Finance', 75000, '2018-09-29', 5500, 'nina.kumar@example.com'),
+(21, 'Ali Khan', 'Marketing', 54000, '2021-01-15', 3100, 'ali.khan@example.com'),
+(22, 'Rita Moore', 'Sales', 52000, '2017-11-30', 1900, 'rita.moore@example.com'),
+(23, 'John White', 'Finance', 67000, '2020-02-22', 4000, 'john.white@example.com'),
+(24, 'Emily Black', 'HR', 58000, '2015-06-14', 3200, 'emily.black@example.com'),
+(25, 'Tom Davis', 'Sales', 43000, '2021-05-25', 1000, 'tom.davis@example.com'),
+(26, 'Maya Lopez', 'IT', 71000, '2016-08-30', 3800, 'maya.lopez@example.com'),
+(27, 'Zara Robinson', 'Finance', 78000, '2017-12-05', 4600, 'zara.robinson@example.com'),
+(28, 'Alex King', 'HR', 63000, '2019-07-20', 3900, 'alex.king@example.com'),
+(29, 'Olivia Wright', 'Marketing', 59000, '2020-11-10', 3300, 'olivia.wright@example.com'),
+(30, 'Ben Lee', 'Sales', 52000, '2021-03-22', 1500, 'ben.lee@example.com'),
+(31, 'David Turner', 'HR', 57000, '2017-06-11', 2800, 'david.turner@example.com'),
+(32, 'Sophia Morris', 'IT', 85000, '2015-04-18', 7000, 'sophia.morris@example.com'),
+(33, 'Matthew Evans', 'Finance', 77000, '2019-08-29', 5000, 'matthew.evans@example.com'),
+(34, 'Isla Phillips', 'Marketing', 65000, '2020-03-11', 4500, 'isla.phillips@example.com'),
+(35, 'Oliver Carter', 'Sales', 55000, '2020-10-15', 2000, 'oliver.carter@example.com'),
+(36, 'Charlotte King', 'HR', 60000, '2021-04-09', 3500, 'charlotte.king@example.com'),
+(37, 'Michael Harris', 'Finance', 72000, '2016-12-20', 4800, 'michael.harris@example.com'),
+(38, 'Jack Wilson', 'Marketing', 61000, '2020-07-18', 4200, 'jack.wilson@example.com'),
+(39, 'Emily Johnson', 'Sales', 46000, '2021-02-12', 1300, 'emily.johnson@example.com'),
+(40, 'Henry Thomas', 'IT', 88000, '2017-01-06', 7500, 'henry.thomas@example.com'),
+(41, 'Grace Lee', 'Finance', 67000, '2021-03-05', 4000, 'grace.lee@example.com'),
+(42, 'Jackie Allen', 'HR', 50000, '2020-05-01', 2500, 'jackie.allen@example.com'),
+(43, 'Lucy Evans', 'Sales', 54000, '2019-09-09', 1500, 'lucy.evans@example.com'),
+(44, 'Brian Young', 'Marketing', 58000, '2020-11-12', 3200, 'brian.young@example.com'),
+(45, 'James Scott', 'IT', 72000, '2018-05-17', 5500, 'james.scott@example.com'),
+(46, 'Lily Robinson', 'HR', 51000, '2021-06-01', 2300, 'lily.robinson@example.com'),
+(47, 'Lucas Anderson', 'Finance', 68000, '2020-04-29', 4700, 'lucas.anderson@example.com'),
+(48, 'Ella Lewis', 'Marketing', 63000, '2019-01-21', 3900, 'ella.lewis@example.com'),
+(49, 'Mason Clark', 'Sales', 48000, '2018-10-12', 1500, 'mason.clark@example.com'),
+(50, 'Zoe Carter', 'Finance', 74000, '2017-11-05', 5000, 'zoe.carter@example.com');
+
+
