@@ -1,0 +1,8 @@
+Schema name : Hospital Management
+
+Table names:
+1. Patients — stores patient details
+2. Doctors — stores doctor details
+3. Appointments — booking appointments
+4. Bills — payments from patients
+5. Departments — hospital departments like Cardiology, etc.
